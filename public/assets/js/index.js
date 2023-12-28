@@ -35,9 +35,8 @@ const getNotes = () =>
       'Content-Type': 'application/json'
     }
   }).then((res) => {
-    console.log(res);
-  });
-
+    return res;
+  })
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
@@ -45,6 +44,10 @@ const saveNote = (note) =>
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(note)
+  }).then((res) => {
+    return res.json();
+  }).then((data) => {
+    console.log(data);
   });
 
 const deleteNote = (id) =>
