@@ -18,11 +18,6 @@ notes.post('/', (req, res) => {
 
     const {title, text} = req.body;
     if (req.body) {
-        const newNote = {
-            id: uuidv4(),
-            title: title,
-            text: text,
-        }
 
 
         //read out current DB. 
@@ -30,6 +25,12 @@ notes.post('/', (req, res) => {
 
             //parse the data into usable JS
             const currentData = JSON.parse(data);
+
+            const newNote = {
+                id: uuidv4(),
+                title: title,
+                text: text,
+            }
 
             //push new note on to the currentData array
             currentData.push(newNote);
@@ -46,7 +47,6 @@ notes.post('/', (req, res) => {
 });
 
 notes.delete('/:id', (req, res) => {
-    console.info(`${req.method} request made`);
     let foundItem = false;
     //check if id is in the params
     if (req.params.id) {
@@ -62,7 +62,6 @@ notes.delete('/:id', (req, res) => {
 
                 if (!notNoteToDelete) {
                     foundItem = true;
-                    console.log('FOUND ONE TO DELETE');
                 }
 
 
@@ -73,8 +72,6 @@ notes.delete('/:id', (req, res) => {
             //write the data back to the file.
             const stringData = JSON.stringify(updatedData);
             fs.writeFile('./db/db.json', stringData).then(() => {
-                console.log('LOGGING FOUND ITEM BOOL');
-                console.log(foundItem);
                 if (!foundItem) {
                     res.code = 404;
                     res.json('NO MATCHING ID FOUND FOR DELETE');
