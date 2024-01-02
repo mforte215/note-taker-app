@@ -27,7 +27,7 @@ A Link to the live web application: https://note-takr-478968f6685b.herokuapp.com
 
 ## License
 
-NOTICE: This repository uses the MIT License
+NOTICE: This repository uses the CC0 1.0 Universal License
 
 ## Contributing
 
