@@ -23,7 +23,7 @@ The website is designed to allow you to save small notes for yourself to recall 
 
 A Link to the GitHub Repo: https://github.com/mforte215/note-taker-app
 
-A video demostration of the command line application:
+A Link to the live web application: https://note-takr-478968f6685b.herokuapp.com/
 
 ## License
 
